@@ -51,23 +51,23 @@ const Home = () => {
     const controls = useAnimation();
 
     // Función para animar el cambio de colores del gradiente
-    const animateRadialGradient = async () => {
+    const animateLinearGradient = async () => {
         while (true) {
-          await controls.start({
-            background: 'radial-gradient(circle at center, #FF008C, #D309E1, #9C1AFF)',
-            transition: { duration: 2, ease: 'linear' },
-          });
-          await controls.start({
-            background: 'radial-gradient(circle at center, #9C1AFF, #FF008C, #D309E1)',
-            transition: { duration: 2, ease: 'linear' },
-          });
+            await controls.start({
+                background: 'linear-gradient(to right, #F57689, #FDB7C0, #FFA7AE)',
+                transition: { duration: 2, ease: 'linear' },
+            });
+            await controls.start({
+                background: 'linear-gradient(to right, #FFA7AE, #F57689, #FDB7C0)',
+                transition: { duration: 2, ease: 'linear' },
+            });
         }
-      };
+    };
 
     // Iniciar la animación al montar el componente
     React.useEffect(() => {
-        animateRadialGradient();
-      }, []);
+        animateLinearGradient();
+    }, []);
 
 
     return (
@@ -119,12 +119,12 @@ const Home = () => {
                 </motion.section>
 
                 <motion.section
-                    initial={{ background: 'radial-gradient(circle at center, #FF008C, #D309E1, #9C1AFF)' }}
+                    initial={{ background: 'linear-gradient(to right, #F57689, #FDB7C0, #FFA7AE)' }}
                     animate={controls}
                     style={{
-                      width: '50vw',
-                      height: '100vh',
-                      
+                        width: '50vw',
+                        height: '100vh',
+
                     }}
                 >
                     <div className='text_right'>
@@ -133,7 +133,7 @@ const Home = () => {
                     </div>
                 </motion.section>
             </motion.div>
-        </AnimatePresence>
+        </AnimatePresence >
 
     )
 }
